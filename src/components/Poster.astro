@@ -178,9 +178,15 @@ import wallImage from "../../public/wallpaper3.jpg";
       const parallax: HTMLElement | null =
         document.querySelector(".parallax-element");
       if (parallax) {
-        let scrollPosition = window.pageYOffset;
-        parallax.style.transform =
-          "translateY(" + scrollPosition * -0.25 + "px)";
+        if (window.innerWidth < 768) {
+          parallax.style.transform = "translateY(0px)";
+          return;
+        } else {
+          let scrollPosition = window.pageYOffset;
+
+          parallax.style.transform =
+            "translateY(" + scrollPosition * -0.25 + "px)";
+        }
       }
     });
 
