@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import dimensionalImage from "../../public/dimensional.jpeg";
+import monstruosImage from "../../public/monstruos.jpeg";
+import torreImage from "../../public/torremarkfeel.jpeg";
+---
+
+<section class="discography">
+  <div class="container">
+    <div class="thin-container">
+      <h3 class="main-title">Discografía</h3>
+
+      <div class="discography__text">
+        ‘La torre de Markfeel‘ (2019, Rock Estatal Records) fue el primer disco
+        de Markfeel: 4 videoclips, buena aceptación en prensa y redes,
+        colaboraciones como Vito (Sínkope) y una gira nacional interrumpida por
+        la pandemia. <br /><br /> Más visceral, nacido de tiempos extraños, llega
+        ‘Monstruos‘ (2021, NB) un 2º disco que a las pocas semanas recibe el premio
+        nacional Disco del Año en la emisora Rock66. El disco contó con Marcos Molina
+        (Gritando en Silencio) y la colaboración de Jorge Escobedo (Sôber) en su
+        presentación en Madrid, a la que siguió una gira por todo el país en la que
+        el grupo se lanza a por el 3º disco.<br /><br /><b>‘Dimensional‘</b> (2024)
+        explota todos los elementos que definen Markfeel: poesía urbana y oscura,
+        guitarras coloridas, una potente base rítmica y una electrónica envolvente.
+      </div>
+      <div class="discography__albums">
+        <Image
+          src={dimensionalImage}
+          alt="Dimensional"
+          class="discography__album"
+        />
+        <Image
+          src={monstruosImage}
+          alt="Monstruos"
+          class="discography__album"
+        />
+        <Image src={torreImage} alt="Torre" class="discography__album" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .discography {
+    background-color: black;
+    padding-top: 120px;
+    padding-bottom: 150px;
+  }
+
+  .discography__text {
+    font-size: 22px;
+    line-height: 170%;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 5rem;
+  }
+  .discography .container {
+    margin: 0 auto;
+  }
+
+  .discography__albums {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .discography__album {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .discography {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .discography__text {
+      font-size: 18px;
+    }
+
+    .discography__albums {
+      display: block;
+    }
+
+    .discography__albums img {
+      display: block;
+      margin: 50px auto;
+    }
+  }
+</style>

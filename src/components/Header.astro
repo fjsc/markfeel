@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import logoImage from "../../public/logo.png";
+---
+
+<header id="global-header" class="flex pt-5 px-4 md:px-12 top-0 z-50 w-full">
+  <div class="logo">
+    <Image src={logoImage} class="w-48 lg:w-56 max-w-80" alt=" Markfeel" />
+  </div>
+  <div class="text-center flex-1 hidden lg:block">
+    <nav class="flex-1 inline-block">
+      <ul class="text-white grid gap-8 text-sm">
+        <li><a href="#">Historia</a></li>
+        <li><a href="#">Discografía</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="social flex gap-3 sm:gap-5 ml-auto">
+    <a href="https://www.facebook.com/markfeeloficial" class="text-white"
+      ><i class="fab fa-facebook"></i></a
+    >
+    <a href="https://www.instagram.com/markfeel.es" class="text-white"
+      ><i class="fab fa-instagram"></i></a
+    >
+    <a href="https://www.tiktok.com/@markfeeloficial" class="text-white"
+      ><i class="fab fa-tiktok"></i></a
+    >
+    <a
+      href="https://open.spotify.com/artist/4TDYVl7E031fFPwYoVP0TL"
+      class="text-white"><i class="fab fa-spotify"></i></a
+    >
+    <a href="https://www.youtube.com/markfeel" class="text-white"
+      ><i class="fab fa-youtube"></i></a
+    >
+  </div>
+</header>
+
+<script>
+  document.addEventListener("scroll", () => {
+    const header = document.getElementById("global-header");
+    const headerClass = "sticky-header";
+    if (!header) return;
+    if (window.scrollY > 100) {
+      header.classList.add(headerClass);
+    } else {
+      header.classList.remove(headerClass);
+    }
+  });
+</script>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+  }
+
+  .logo {
+    /* Estilos para el logotipo */
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    letter-spacing: 6px;
+    font-weight: 100;
+  }
+
+  nav ul li {
+    margin-left: 1rem;
+  }
+
+  nav ul li:first-child {
+    margin-left: 0;
+  }
+</style>

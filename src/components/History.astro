@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import signatureImage from "../../public/signature.png";
+---
+
+<section class="history container">
+  <div class="thin-container">
+    <h3 class="main-title">Nuestra historia</h3>
+
+    <div class="history__text">
+      <p>
+        Markfeel es una banda de rock española formada en 2018. Empezó como un
+        proyecto en solitario de Mark, quien se encarga de la voz, guitarras,
+        electrónica y letras. Luego se unieron Alba Lorez en el bajo y voces, y
+        Luismi Franganillo en la batería​.
+      </p>
+      <br />
+
+      <p>
+        La banda lanzó su primer álbum, "La torre de Markfeel", en 2019,
+        realizando más de 100 conciertos para promocionarlo. En 2021, lanzaron
+        su segundo álbum, "Monstruos", un disco más crudo y visceral
+        influenciado por la pandemia. Este álbum está acompañado de un libro
+        exclusivo con poesía, fotos inéditas y preguntas de seguidores.​
+      </p>
+      <Image
+        src={signatureImage}
+        class="w-32 md:w-40 float-right"
+        alt="Markfeel"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .history {
+    padding-top: 120px;
+    padding-bottom: 150px;
+    margin: 0 auto;
+  }
+
+  .history__text {
+    font-size: 22px;
+    line-height: 170%;
+    color: white;
+    font-weight: 300;
+  }
+
+  @media (max-width: 768px) {
+    .history {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .history__text {
+      font-size: 18px;
+    }
+  }
+</style>
