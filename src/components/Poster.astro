@@ -8,172 +8,183 @@ import wallImage from "../../public/wallpaper3.jpg";
     <Image src={wallImage} alt="Wall" class="overlay__img" />
   </div>
   <div class="absolute z-10 top-1/2 left-1/2 text-xxl text-white poster__album">
-    <div class="poster__album__name">Dimensional</div>
-    <div class="poster__album__disclaimer">
-      <b>DIMENSIONAL</b> es el nuevo trabajo de <b>MARKFEEL</b> tras La torre de
-      Markfeel (2019, Rock Estatal Records) y Monstruos (2021, NB), premio nacional
-      Disco del Año 2021 en Rock66.
+    <div class="parallax-element">
+      <div class="poster__album__name">Dimensional</div>
+      <div class="poster__album__disclaimer">
+        <b>DIMENSIONAL</b> es el nuevo trabajo de <b>MARKFEEL</b> tras La torre de
+        Markfeel (2019, Rock Estatal Records) y Monstruos (2021, NB), premio nacional
+        Disco del Año 2021 en Rock66.
+      </div>
+      <button
+        id="button-album"
+        class="poster__album__video border-2 border-white w-fit m-auto mt-8 px-8 py-2 md:mt-10"
+      >
+        <i class="fa-solid fa-music"></i> Escucharlo ahora
+      </button><br />
     </div>
-    <button
-      id="button-album"
-      class="poster__album__video border-2 border-white w-fit m-auto mt-8 px-8 py-2 md:mt-10"
-    >
-      <i class="fa-solid fa-music"></i> Escucharlo ahora
-    </button>
   </div>
-</div>
+  <div class="video" style="display:none">
+    <span
+      class="absolute top-0 right-0 m-4 text-white cursor-pointer"
+      onclick="document.querySelector('.video').style.display = 'none'"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </span>
+    <iframe
+      class="video__frame"
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/XcR5UdjVOXI?si=yJVXfuNjeFRbWHEc?autoplay=1"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
 
-<div class="video" style="display:none">
-  <span
-    class="absolute top-0 right-0 m-4 text-white cursor-pointer"
-    onclick="document.querySelector('.video').style.display = 'none'"
-  >
-    <i class="fa-solid fa-xmark"></i>
-  </span>
-  <iframe
-    class="video__frame"
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/XcR5UdjVOXI?si=yJVXfuNjeFRbWHEc?autoplay=1"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen></iframe>
-</div>
+  <style>
+    .overlay {
+      background: linear-gradient(270deg, #22133e 0%, #300d2e 100%);
 
-<style>
-  .overlay {
-    background: linear-gradient(270deg, #22133e 0%, #300d2e 100%);
+      --album-color: #8a2be2;
+    }
 
-    --album-color: #8a2be2;
-  }
+    .overlay__image {
+      min-width: 100%;
+      min-height: 100%;
+    }
 
-  .overlay__image {
-    min-width: 100%;
-    min-height: 100%;
-  }
+    .overlay__img {
+      position: absolute;
+      /* top: 50%; */
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: inherit;
+      min-height: 100%;
+      min-width: 100%;
+      object-fit: cover;
+    }
 
-  .overlay__img {
-    position: absolute;
-    /* top: 50%; */
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: inherit;
-    min-height: 100%;
-    min-width: 100%;
-    object-fit: cover;
-  }
-
-  .poster__album {
-    transform: translate(-50%, -50%);
-    text-align: center;
-    top: 55%;
-  }
-
-  .poster__album__name {
-    animation: flicker 1.5s infinite alternate;
-    font-size: 7vw;
-    font-weight: 100;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-  }
-
-  .poster__album__disclaimer {
-    font-size: 16px;
-    font-weight: 100;
-    width: max-content;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .poster__album__video {
-    background: white;
-    color: black;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 28px;
-  }
-
-  .poster__album__video:hover {
-    background: indigo;
-    color: white;
-  }
-
-  @media (max-width: 768px) {
     .poster__album {
-      top: 34%;
-    }
-
-    .poster__album__video {
-      font-size: 13px;
-    }
-
-    .poster__album__disclaimer {
-      max-width: 90vw;
-      font-size: 14px;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      top: 55%;
     }
 
     .poster__album__name {
-      font-size: 11vw;
-    }
-  }
-
-  .video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(16px);
-    z-index: 1000;
-  }
-  /* Flickering animation */
-  @keyframes flicker {
-    0%,
-    18%,
-    22%,
-    25%,
-    53%,
-    57%,
-    100% {
-      text-shadow:
-        0 0 4px #fff,
-        0 0 11px #fff,
-        0 0 19px #fff,
-        0 0 40px var(--album-color),
-        0 0 80px var(--album-color),
-        0 0 90px var(--album-color),
-        0 0 100px var(--album-color),
-        0 0 150px var(--album-color);
+      animation: flicker 1.5s infinite alternate;
+      font-size: 7vw;
+      font-weight: 100;
+      letter-spacing: -1px;
+      text-transform: uppercase;
     }
 
-    20%,
-    24%,
-    55% {
-      text-shadow: none;
+    .poster__album__disclaimer {
+      font-size: 16px;
+      font-weight: 100;
+      width: max-content;
+      max-width: 400px;
+      margin: 0 auto;
     }
-  }
 
-  .video__frame {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-    max-width: 1200px;
-    max-height: 750px;
-  }
-</style>
+    .poster__album__video {
+      background: white;
+      color: black;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 28px;
+    }
 
-<script>
-  const button = document.getElementById("button-album");
-  if (button) {
-    button.addEventListener("click", () => {
-      (document.querySelector(".video") as any).style.display = "block";
+    .poster__album__video:hover {
+      background: indigo;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .poster__album {
+        top: 34%;
+      }
+
+      .poster__album__video {
+        font-size: 13px;
+      }
+
+      .poster__album__disclaimer {
+        max-width: 90vw;
+        font-size: 14px;
+      }
+
+      .poster__album__name {
+        font-size: 11vw;
+      }
+    }
+
+    .video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
+      z-index: 1000;
+    }
+    /* Flickering animation */
+    @keyframes flicker {
+      0%,
+      18%,
+      22%,
+      25%,
+      53%,
+      57%,
+      100% {
+        text-shadow:
+          0 0 4px #fff,
+          0 0 11px #fff,
+          0 0 19px #fff,
+          0 0 40px var(--album-color),
+          0 0 80px var(--album-color),
+          0 0 90px var(--album-color),
+          0 0 100px var(--album-color),
+          0 0 150px var(--album-color);
+      }
+
+      20%,
+      24%,
+      55% {
+        text-shadow: none;
+      }
+    }
+
+    .video__frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      height: 90%;
+      max-width: 1200px;
+      max-height: 750px;
+    }
+  </style>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const parallax: HTMLElement | null =
+        document.querySelector(".parallax-element");
+      if (parallax) {
+        let scrollPosition = window.pageYOffset;
+        parallax.style.transform =
+          "translateY(" + scrollPosition * -0.15 + "px)";
+      }
     });
-  }
-</script>
+
+    const button = document.getElementById("button-album");
+    if (button) {
+      button.addEventListener("click", () => {
+        (document.querySelector(".video") as any).style.display = "block";
+      });
+    }
+  </script>
+</div>
